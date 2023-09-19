@@ -21,6 +21,6 @@ export class bookTemp extends bookConfig {
             versealt = verseNumber;
         if (this.ignoreBooks.includes(book))
             throw new ALKITABAPIBookIgnoredError(book);
-        return (await this['fetchweb'](version, book, chapter, versealt));
+        return (await this['getweb'](version, book, chapter, versealt));
     }
 }

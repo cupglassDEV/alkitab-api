@@ -63,6 +63,7 @@
 		"node_modules",
 		".build",
 		"buildopt",
-		"**/test.ts"
+		"**/test.ts",
+		"build-test"
 	]
 }
