@@ -105,12 +105,4 @@ const resolvers = {
   },
 };
 
-function context(headers, secrets) {
-  return {
-    headers,
-    secrets,
-  };
-}
 
-
-// Source: Alkitab Mobile SABDA http://alkitab.mobi/

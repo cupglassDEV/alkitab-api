@@ -84,7 +84,7 @@ clone this repository, do the following command
 
 ## Supported languages & versions
 
-### Bahasa Indonesia
+### Bahasa Indonesia translations
 
 - Alkitab Yang Terbuka (DRAFT) 2013
 - Alkitab Terjemahan Baru (TB) - 1974 ©
@@ -111,7 +111,7 @@ clone this repository, do the following command
 - Kitab Alkudus (Keasberry) - 1853 \* ©
 - Alkitab PB Leydekker Draft - 1733 \* ©
 
-### Bahasa Suku:
+### Tribe languages
 
 - Alkitab Bahasa Jawa ©
 - Alkitab PB Bahasa Jawa (Revisi 2006) \*
@@ -157,7 +157,7 @@ clone this repository, do the following command
 - Alkitab PB Bahasa Batak Angkola \*
 - Alkitab Bahasa Meyah \*
 
-### Bahasa Inggris:
+### English translations
 
 - New English Translation ©
 - New American Standard Bible ©
@@ -186,6 +186,7 @@ clone this repository, do the following command
 ## Source
 
 Alkitab Mobile SABDA [http://alkitab.mobi/](http://alkitab.mobi/)
+or customize it in [this file](src/index.ts)
 
 ## License
 
