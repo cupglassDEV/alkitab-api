@@ -1,4 +1,2 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var index_1 = require("./src/index");
-index_1.default.test('adad');
+import alkitabapi from './src/index';
+console.log(await alkitabapi.getChapter(alkitabapi.Version.tb, alkitabapi.Book.amos, 1, 4));

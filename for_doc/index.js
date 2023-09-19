@@ -97,12 +97,5 @@ const getChapters = (version, book, chapter, verseNumber) => {
 };
 
 
-const resolvers = {
-  Query: {
-    passages: (root, args, context) => {
-      return getChapters(args.version, args.book, args.chapter, args.verse);
-    },
-  },
-};
 
 

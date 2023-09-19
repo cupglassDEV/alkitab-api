@@ -47,73 +47,42 @@ declare module '@daxplr/alkitab-api' {
         tabaru='translationver-tabaru',
         karo='translationver-yali',
     }
-    class ALKITABAPIBookIgnoredError extends Error {
-        constructor(book:Book[]){
-            this.name = 'ALKITABAPI Book Ignored Error'
-            this.message = `The provided source ignored ${book.length===1?'that book':'these books'}:\n\n${JSON.stringify(book)}`
-            super()
-        }
-    }
-    class ALKITABAPISourceOnlySupportsOneVerse extends Error {
-        constructor(){
-        this.name = 'ALKITABAPI Source Error'
-        this.message = `The provided source only supports one verse`
-        super()
-        }
-    }
         /**
      * book config, only used on ./index.ts
      * @since 1.0.0
      * 
      */
-    export abstract class bookConfig {
-        constructor(){
+    export class bookConfig {
             /*
              they still didnt support types for {this} in class constructor,
              see https://github.com/microsoft/TypeScript/issues/5863
             
-             so the variables will be outside of the constructor
-             you only need to use super() inside the constructor()
+             so the config variables will be outside of the constructor
+             you only need to use super() inside of the constructor()
              */
-        }
+
+
+
                     /**
              *  @satisfies Do you want to make some books ignored and throws as error if someone was using your ignored books?
              */
-        abstract ignoreBooks:Book[]
-         /**
-             *  @satisfies Do you want to add some missing books because the author misses some books?
-             */
-        abstract addBooks:string[]
+        declare ignoreBooks:Book[]
          /**
              * use this if your book code was diffrent for your provided fetchweb function
+             *  @private unused for now on, implemented later on 1.0.2
              *  @param {Book} Book (the first index for the array) the book that you want to replace the code
              *  @param {string} string (the last index for the array) the code that you want to change for the Book param
-             *  @satisfies Is the provided link dosent supports some codes but the content of the books are same as the provided one? 
+             *  @satisfies Is the provided link dosent supports some codes? But, the content of the book are same as the provided one? 
              */
-        abstract replaceBookCodes:[[Book, string]]|[Book, string]
-         /**
-             *  @satisfies Is the given link supports many verses? Or only one?
-             */
-        declare supportsManyVerses:boolean
+        declare replaceBookCodes:[[Book, string]]|[Book, string]
         /**
          * DO NOT CHANGE THIS CODE
          */
-        public __system_execfetchweb(version:Version, book:Book|String, chapter:number, verseNumber:number|number[]):Chapter{
-            var isNumberArray:boolean = false
-            var versealt:number[]
-            if (typeof verseNumber!=='number') isNumberArray = true
-            if (!this.supportsManyVerses&&isNumberArray) throw new ALKITABAPISourceOnlySupportsOneVerse()
-            if (this.supportsManyVerses){
-            if (!isNumberArray) versealt = [verseNumber]
-            else versealt = verseNumber
-            }
-            if (this.ignoreBooks.includes(book)) throw new ALKITABAPIBookIgnoredError(book)
-            return (await this.fetchweb(version, book.toString(), chapter, versealt))
-        }
+        public __system_execfetchweb(version:Version, book:Book, chapter:number, verseNumber:number|number[]):Promise<Chapter>
         /**
          * used to fetch with your provided url
          */
-        protected fetchweb(version:Version, book:String, chapter:number, verseNumber:number[]):Chapter
+        public fetchweb(version:Version, book:String, chapter:number, verseNumber:number[]):Chapter
     }
         /**
      * bibble book, outputted as the book codes (for https://alkitab.mobi/ (its the same as https://alkitab.sabda.org))
@@ -126,7 +95,6 @@ declare module '@daxplr/alkitab-api' {
         ezra="Ezr",
         kings1='1Ra',
         kings2='2Ra',
-        joel='Yoe',
         nehemiah='Neh',
         joshua="Yos",
         judges="Hak",
@@ -194,31 +162,32 @@ declare module '@daxplr/alkitab-api' {
     
     export interface Verse {
         content: string;
-        book: Book;
+        book: Book|string;
         version: string;
         chapter: number;
         verse: number;
-        order: number;
         type: string;
-    };
+    }
 
     export interface Chapter{
         verses: Verse[];
         chapter: number;
         book: string;
         version: string;
-    };
+    }
+
     /**
      * get the chapter/s
      * @since 1.0.0
      * @source https://alkitab.sabda.com
      */
+    //@ts-check
     export function getChapter(
         version: Version,
         book: string,
         chapter: number,
         verse: number|number[]
-    ): Chapter;
+    ): Promise<Chapter>;
     export function test(
         a:any
     )

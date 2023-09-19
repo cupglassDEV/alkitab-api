@@ -2,6 +2,7 @@
   "name": "@daxplrer/alkitab-api",
   "version": "1.0.0",
   "description": "alkitab api, using module",
+  "type": "module",
   "main": "./src/index.js",
   "types": "./src/index.d.ts",
   "scripts": {
@@ -16,12 +17,14 @@
     "axios": "^1.5.0",
     "cheerio": "^1.0.0-rc.12",
     "cowsay": "^1.5.0",
+    "is-url": "^1.2.4",
     "typescript": "^5.2.2"
   },
   "devDependencies": {
+    "@types/is-url": "^1.2.30",
     "terser": "^5.19.4"
   },
-  "includes":[
+  "includes": [
     "buildopt"
   ]
 }
