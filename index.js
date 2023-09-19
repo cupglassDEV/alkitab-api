@@ -96,71 +96,6 @@ const getChapters = (version, book, chapter, verseNumber) => {
   }
 };
 
-const typeDefs = `
-	type Verse {
-		content: String
-		book: String
-		version: String
-		chapter: Int
-		verse: Int
-		order: Int
-		type: String
-	} 
-
-	type Chapter {
-		verses: [Verse]
-		chapter: Int
-		book: String
-		version: String
-	}
-
-  enum Version {
-    av
-    net
-    nkjv
-    amp
-    esv
-    niv
-    bbe
-    tb
-    jawa
-    sunda
-    toba
-    makasar
-    bali
-    lampung
-    simalungun
-    nias
-    aceh
-    mentawai
-    mamasa
-    berik
-    manggarai
-    sabu
-    kupang
-    abun
-    meyah
-    uma
-    yawa
-    gorontalo
-    barantak
-    bambam
-    mongondow
-    aralle
-    napu
-    sangir
-    taa
-    rote
-    galela
-    yali
-    tabaru
-    karo
-  }
-	
-  type Query {
-    passages(version: Version, book: String, chapter: Int, verse: Int): Chapter
-  }
-`;
 
 const resolvers = {
   Query: {
@@ -177,19 +112,5 @@ function context(headers, secrets) {
   };
 }
 
-const server = new ApolloServer({
-  typeDefs,
-  resolvers,
-  introspection: true,
-  playground: true,
-});
 
 // Source: Alkitab Mobile SABDA http://alkitab.mobi/
-
-const app = express();
-
-server.applyMiddleware({ app, path: '/' });
-
-app.listen({ port }, () => {
-  console.log(`🚀 Server ready at port ${port}${server.graphqlPath}`);
-});

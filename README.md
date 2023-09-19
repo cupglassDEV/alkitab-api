@@ -1,4 +1,4 @@
-copied from the original repo
+copied from the ![original repo](https://github.com/sonnylazuardi/alkitab-api)
 
 # Alkitab API
 
