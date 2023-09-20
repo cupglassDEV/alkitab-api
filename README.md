@@ -2,85 +2,13 @@ copied from the ![original repo](https://github.com/sonnylazuardi/alkitab-api)
 
 # Alkitab API
 
-[💁 New Update] GraphQL Support
+@sonnylazuardi's Bibble API, as a module
 
-![alkitabgraphql](screen.png)
+currently this module is still on testing, not done yet
 
-Code & Demo: https://bible.sonnylab.com
-
-Bible API for Everyone. Using express with Babel ES6/ES2015, and cheerio.
-
-## Installing
-
-clone this repository, do the following command
-
-    npm install
-    node index.js
-
-## Usage
-
-- Write the query:
-
-```
-{
-  passages (version: tb, book: "Mazmur", chapter:23) {
-    verses {
-      verse
-      type
-      content
-    }
-  }
-}
-```
-
-- Hit the play button
-- Result would be like this:
-
-```
-{
-  "data": {
-    "passages": {
-      "verses": [
-        {
-          "verse": 1,
-          "type": "title",
-          "content": "TUHAN, gembalaku yang baik"
-        },
-        {
-          "verse": 1,
-          "type": "content",
-          "content": "Mazmur Daud. TUHAN adalah gembalaku, takkan kekurangan aku."
-        },
-        {
-          "verse": 2,
-          "type": "content",
-          "content": "Ia membaringkan aku di padang yang berumput hijau, Ia membimbing aku ke air yang tenang;"
-        },
-        {
-          "verse": 3,
-          "type": "content",
-          "content": "Ia menyegarkan jiwaku. Ia menuntun aku di jalan yang benar oleh karena nama-Nya."
-        },
-        {
-          "verse": 4,
-          "type": "content",
-          "content": "Sekalipun aku berjalan dalam lembah kekelaman, aku tidak takut bahaya, sebab Engkau besertaku; gada-Mu dan tongkat-Mu, itulah yang menghibur aku."
-        },
-        {
-          "verse": 5,
-          "type": "content",
-          "content": "Engkau menyediakan hidangan bagiku, di hadapan lawanku; Engkau mengurapi kepalaku dengan minyak; pialaku penuh melimpah."
-        },
-        {
-          "verse": 6,
-          "type": "content",
-          "content": "Kebajikan dan kemurahan belaka akan mengikuti aku, seumur hidupku; dan aku akan diam dalam rumah TUHAN sepanjang masa."
-        }
-      ]
-    }
-  }
-}
-```
+# Known issues
+- The requested module '@daxplr/alkitab-api' does not provide an export named 'Book' in the internal module
+- Some types conflict
 
 ## Supported languages & versions
 
@@ -111,8 +39,7 @@ clone this repository, do the following command
 - Kitab Alkudus (Keasberry) - 1853 \* ©
 - Alkitab PB Leydekker Draft - 1733 \* ©
 
-### Tribe languages
-
+### Ethnic languages 
 - Alkitab Bahasa Jawa ©
 - Alkitab PB Bahasa Jawa (Revisi 2006) \*
 - Alkitab Bahasa Jawa (Sehari-hari 1994) ©
