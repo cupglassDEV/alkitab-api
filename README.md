@@ -7,7 +7,7 @@ copied from the ![original repo](https://github.com/sonnylazuardi/alkitab-api)
 currently this module is still on testing, not done yet
 
 # Known issues
-- The requested module '@daxplr/alkitab-api' does not provide an export named 'Book' in the internal module
+- The requested module '@daxplr/alkitab-api' does not provide an export named 'Book' in the internal module (because of file format conflict)
 - Some types conflict
 
 ## Supported languages & versions
