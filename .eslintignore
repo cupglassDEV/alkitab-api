@@ -1,6 +1,5 @@
 /node_modules/**/*
 /lib
 /coverage
-/src/**/*
 /src/__tests__/*
 /copycjstoesm.cjs
