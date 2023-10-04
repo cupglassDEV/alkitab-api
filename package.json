@@ -17,7 +17,7 @@
     "build:esm": "node copycjstoesm.cjs && tsc --project tsconfig.esm.json",
     "build": "npm run build:cjs && npm run build:esm",
     "lint": "eslint . --ext .ts",
-    "test": "jest --config jestconfig.json",
+    "test": "jest --config jest.config.json",
     "prepare": "npm run build",
     "prepublishOnly": "npm test && npm run lint",
     "preversion": "npm run lint",

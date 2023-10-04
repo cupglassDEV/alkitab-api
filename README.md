@@ -1,25 +1,32 @@
-n# Setup
-~~Install this package~~ The package isn't currently available
+# Setup
+Install the package by executing:
 ```sh
 npm install @daxplrer/alkitab-api
 ```
 
-then try to run ```getChapters```
+Then try to run ```getChapters```
 ```ts
 import {alkitabapi} from '@daxplrer/alkitabapi'
-alkitabapi.getChapters()
+const datares = await alkitabapi.getChapter(typescjs.Version.tb, typescjs.Book.proverbs, 12, 21);
 ```
 
-the results would be like this
+The results would be like this:
 ```ts
-Chapter {
-    // i use interface so it didnt really showed the types
-    verses: [
-    [0]{}
-    ]
-}
+    {
+      verses: [
+        {
+          content: 'Orang benar tidak akan ditimpa oleh bencana apapun, tetapi orang fasik akan senantiasa celaka.', 
+          version: 'tb',
+          verse: 21
+        }
+      ],
+      chapter: 12,
+      book: 'Ams',
+      version: 'tb',
+      toJoinedVerses: [Function: toJoinedVerses]
+    }
 ```
 # Known bugs
-nothing
+--
 # Documentation
-coming soon
+coming soon, for now i made the [JSDOC](https://www.typescriptlang.org/docs/handbook/jsdoc-supported-types.html) too for the replacement of it

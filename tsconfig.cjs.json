@@ -5,7 +5,8 @@
         "target": "ES2016",
         "declaration": true,
         "strict": true,
-        "sourceMap": true
+        "sourceMap": true,
+        "esModuleInterop": true
     },
     "include": ["src/cjs"],
     "exclude": ["node_modules", "**/__tests__/*"]
