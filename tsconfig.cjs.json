@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+        "outDir": "./lib/cjs/",
+        "module": "commonjs",
+        "target": "ES2016",
+        "declaration": true,
+        "strict": true,
+        "sourceMap": true
+    },
+    "include": ["src/cjs"],
+    "exclude": ["node_modules", "**/__tests__/*"]
+}
