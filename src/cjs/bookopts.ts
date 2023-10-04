@@ -10,7 +10,7 @@ class ALKITABAPIBookIgnoredError extends Error {
     }
 }
 export const utils = {
-    convertToBookEnum: function(bookcode:string,replacebookNavigator?:[[types.Book, string]]):types.Book{
+    convertToBookEnum: function(code:string, replacebookNavigator?:[[types.Book, string]]):types.Book{
         // eslint-disable-next-line no-var
         var bookListAlt:[[types.Book, string]]=[[types.Book.genesis, '']];
         Object.values(types.Book).forEach((book1, i_)=>{
@@ -22,9 +22,25 @@ export const utils = {
         });
     }
         for (const book in bookListAlt){
-           if (bookListAlt[book][1].includes(bookcode)) return bookListAlt[book][0];
+           if (bookListAlt[book][1].includes(code)) return bookListAlt[book][0];
         }
-        throw new ReferenceError(`book not found: ${bookcode}`);
+        throw new ReferenceError(`book not found: ${code}`);
+    },
+    convertToVersionEnum: function(code:string, replacebookNavigator?:[[types.Version, string]]):types.Version{
+        // eslint-disable-next-line no-var
+        var bookListAlt:[[types.Version, string]]=[[types.Version.tb, '']];
+        Object.values(types.Version).forEach((book1, i_)=>{
+            bookListAlt[i_] = [book1, ((Object.values(types.Version))[i_])];
+        });
+        if (replacebookNavigator!=undefined){
+        replacebookNavigator.forEach((arr)=>{ 
+            bookListAlt[bookListAlt.indexOf(arr)] = arr;
+        });
+    }
+        for (const book in bookListAlt){
+           if (bookListAlt[book][1].includes(code)) return bookListAlt[book][0];
+        }
+        throw new ReferenceError(`version not found: ${code}`);
     }
 };
 export class bookTemp {

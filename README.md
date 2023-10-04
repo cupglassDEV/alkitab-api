@@ -1,8 +1,4 @@
 [@sonnylazuardi](https://github.com/sonnylazuardi)'s [alkitab-api](https://github.com/sonnylazuardi/alkitab-api), as a module
-
-this is a hybrid package, so you can use it your in CJS and ESM based project
-
-also Typescript types included in this module
 # Setup
 Install the package by executing:
 ```sh
@@ -31,6 +27,8 @@ The results would be like this:
       toJoinedVerses: [Function: toJoinedVerses]
     }
 ```
+# Updates
+- 
 # Known bugs
 --
 # Documentation

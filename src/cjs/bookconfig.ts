@@ -52,6 +52,7 @@ export class defaultSrc implements bookTemp{
         ChapterExport = {
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             //@ts-ignore
+            // TODO: implement the error for this
             verses: (cachemap.filter((verse,i)=>{
             const indexdetect = cachemaporigin[i];
             return ((!(indexdetect<verseNumber[0]))&&(!(indexdetect>verseNumber[1])));
@@ -65,7 +66,7 @@ export class defaultSrc implements bookTemp{
                 joincontent.forEach((verse)=>{
                    result.push(`${verse[1]}\n`);
                 });
-                return (result.join('\n'));
+                return (result.length<2?result.join(''):result.join('\n'));
             },
         };
         return ChapterExport;

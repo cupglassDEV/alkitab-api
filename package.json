@@ -1,6 +1,6 @@
 {
   "name": "@daxplrer/alkitabapi",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "sonnylazuardi/alkitab-api, as a module",
   "main": "lib/cjs/index.js",
   "module": "lib/esm/index.js",
