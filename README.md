@@ -1,13 +1,18 @@
+[@sonnylazuardi](https://github.com/sonnylazuardi)'s [alkitab-api](https://github.com/sonnylazuardi/alkitab-api), as a module
+
+this is a hybrid package, so you can use it your in CJS and ESM based project
+
+also Typescript types included in this module
 # Setup
 Install the package by executing:
 ```sh
-npm install @daxplrer/alkitab-api
+npm install @daxplrer/alkitabapi
 ```
 
 Then try to run ```getChapters```
 ```ts
-import {alkitabapi} from '@daxplrer/alkitabapi'
-const datares = await alkitabapi.getChapter(typescjs.Version.tb, typescjs.Book.proverbs, 12, 21);
+import {alkitabapi, types} from '@daxplrer/alkitabapi'
+await alkitabapi.getChapter(types.Version.tb, types.Book.proverbs, 12, 21);
 ```
 
 The results would be like this:
