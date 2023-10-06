@@ -1,4 +1,4 @@
-import {types} from ".";
+import {alkitabapi as types} from ".";
 import * as bookopts from './bookconfig';
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 interface gapenting_thisany { getweb:any}

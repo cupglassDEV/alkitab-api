@@ -7,19 +7,17 @@
 import * as bookconf from './bookconfig';
 import * as bookopt from './bookopts';
 type type_getbook = keyof typeof bookconf;
-import * as crypto from 'crypto';
 // the source place
 interface thisany { prototype: any; }
-/**
- * typee
- * @since 1.0.0
- */
+/** @deprecated since 1.0.4, please use ```alkitabapi``` instead */
 export namespace types {
-        /**
- * types for each Verse
- * @since 1.0.0
- * 
+
+}
+/**
+ * main module. Deprecated in 1.0.1, 
+ * @since 1.0.0||>=1.0.4
  */
+export namespace alkitabapi {
     export interface Verse {
         content: string;
         version: Version;
@@ -155,12 +153,6 @@ export enum Book {
     jude='Yud',
     revelation='Wah'
 }
-}
-/**
- * main entrypoint
- * @since 1.0.0
- */
-export namespace alkitabapi {
 /**
  * get the chapter/s
  * @param book the book
@@ -173,27 +165,17 @@ export namespace alkitabapi {
  */
 //@ts-check
 export async function getChapter(
-    version: types.Version,
-    book: types.Book,
+    version: Version,
+    book: Book,
     chapter: number,
     verse1:number,
     verse2?:number,
     source?:string
-): Promise<types.Chapter>{
+): Promise<Chapter>{
     
     //starts to check if any replacement requested
     return (await bookopt.__system_execfetchweb(version, book, chapter, [verse1, (verse2==undefined?verse1:verse2)]));
 }
 
 }
-class main {
-    constructor(){
-        ((main as unknown) as thisany).prototype = alkitabapi;
-        ((main as unknown) as thisany).prototype.types = types;
-    }
-}
-/**
- * main module
- * @deprecated since ```1.0.1```. Please use the bracket one directly ```import {alkitabapi, types} from '@daxplrer/alkitabapi'```
- */
-export {};
+export default alkitabapi;

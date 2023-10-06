@@ -1,7 +1,7 @@
-import { alkitabapi as apicjs, types as typescjs } from '../cjs/index';
+import { alkitabapi as apicjs } from '../cjs-and-esm/index';
 test('alkitabapi', async () => {
   async function runner():Promise<string>{
-    const datares = await apicjs.getChapter(typescjs.Version.tb, typescjs.Book.proverbs, 12, 21);
+    const datares = await apicjs.getChapter(apicjs.Version.tb, apicjs.Book.proverbs, 12, 21);
     console.log(datares);
     if (datares.toJoinedVerses!=undefined) {
       return datares.toJoinedVerses();

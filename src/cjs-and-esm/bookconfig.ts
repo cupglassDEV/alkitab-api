@@ -1,16 +1,16 @@
 /* eslint-disable no-var */
-import {types} from "./index";
+import alkitabapi from "./index";
 import { bookTemp, utils } from "./bookopts";
 import {load as cheerioload} from "cheerio";
 import axios from 'axios';
 export class defaultSrc implements bookTemp{
     cachemaporigin:number[]=[0];
-    public async getfetch (version: types.Version, book: string, chapter: number, verseNumber: [number, number]):Promise<types.Chapter>{
+    public async getfetch (version: alkitabapi.Version, book: string, chapter: number, verseNumber: [number, number]):Promise<alkitabapi.Chapter>{
         const htmldata = (await axios.get(`https://alkitab.mobi/${version}/${book}/${chapter}`, {responseType:'document'})).data;
         const html$ = cheerioload(htmldata);
         var cachemaporigin:number[]=[0];
-        var cachemap:types.Verse[]=[];
-        var ChapterExport:types.Chapter;
+        var cachemap:alkitabapi.Verse[]=[];
+        var ChapterExport:alkitabapi.Chapter;
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         //@ts-ignore
         await html$('div').filter((i, el)=>{
@@ -42,7 +42,7 @@ export class defaultSrc implements bookTemp{
             }
         }
         });
-        function compilleToFixedVerses(verses:types.Verse[], origin_i:number[]):[[number, string]]{
+        function compilleToFixedVerses(verses:alkitabapi.Verse[], origin_i:number[]):[[number, string]]{
             var results:[[number, string]]=[[0, '']];
             verses.forEach((verse, i)=>{
                 results.push([origin_i[i], verse.content]);
@@ -71,6 +71,6 @@ export class defaultSrc implements bookTemp{
         };
         return ChapterExport;
     }
-    ignoreBooks = [types.Book.ecclesiastes];
+    ignoreBooks = [alkitabapi.Book.ecclesiastes];
     replaceBookCodes = undefined;
 }
