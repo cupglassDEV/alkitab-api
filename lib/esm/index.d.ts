@@ -1,13 +1,11 @@
-/**
- * typee
- * @since 1.0.0
- */
+/** @deprecated since 1.0.4, please use ```alkitabapi``` instead */
 export declare namespace types {
-    /**
-* types for each Verse
-* @since 1.0.0
-*
-*/
+}
+/**
+ * main module. Deprecated in 1.0.1,
+ * @since 1.0.0||>=1.0.4
+ */
+export declare namespace alkitabapi {
     interface Verse {
         content: string;
         version: Version;
@@ -139,12 +137,6 @@ export declare namespace types {
         jude = "Yud",
         revelation = "Wah"
     }
-}
-/**
- * main entrypoint
- * @since 1.0.0
- */
-export declare namespace alkitabapi {
     /**
      * get the chapter/s
      * @param book the book
@@ -155,10 +147,6 @@ export declare namespace alkitabapi {
      * @param source optional, change the default source to the provided ts class source from 'bookconfig.ts'
      * @since 1.0.0
      */
-    function getChapter(version: types.Version, book: types.Book, chapter: number, verse1: number, verse2?: number, source?: string): Promise<types.Chapter>;
+    function getChapter(version: Version, book: Book, chapter: number, verse1: number, verse2?: number, source?: string): Promise<Chapter>;
 }
-/**
- * main module
- * @deprecated since ```1.0.1```. Please use the bracket one directly ```import {alkitabapi, types} from '@daxplrer/alkitabapi'```
- */
-export {};
+export default alkitabapi;

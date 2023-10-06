@@ -1,4 +1,4 @@
-import { types } from ".";
+import { alkitabapi as types } from ".";
 export declare const utils: {
     convertToBookEnum: (code: string, replacebookNavigator?: [[types.Book, string]]) => types.Book;
     convertToVersionEnum: (code: string, replacebookNavigator?: [[types.Version, string]]) => types.Version;
