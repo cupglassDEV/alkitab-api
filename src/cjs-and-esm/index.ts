@@ -10,9 +10,7 @@ type type_getbook = keyof typeof bookconf;
 // the source place
 interface thisany { prototype: any; }
 /** @deprecated since 1.0.4, please use ```alkitabapi``` instead */
-export namespace types {
-
-}
+export namespace types {}
 /**
  * main module. Deprecated in 1.0.1, 
  * @since 1.0.0||>=1.0.4

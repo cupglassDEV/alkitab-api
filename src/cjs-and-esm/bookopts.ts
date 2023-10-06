@@ -41,6 +41,14 @@ export const utils = {
            if (bookListAlt[book][1].includes(code)) return bookListAlt[book][0];
         }
         throw new ReferenceError(`version not found: ${code}`);
+    },
+    isInt16:function(num:number){
+        try {
+          const test = new Uint16Array(num);
+          return true;
+        } catch (err) {
+            return false;
+        }
     }
 };
 export class bookTemp {
@@ -66,7 +74,7 @@ export class bookTemp {
                     *  @satisfies Is the provided link dosent supports some codes? But, the content of the book are same as the provided one? 
                     */
                declare replaceBookCodes:[[types.Book, string]]|undefined;
-    declare getfetch :(version: types.Version, book: string, chapter: number, verseNumber: [number, number])=>Promise<types.Chapter>;
+    declare getfetch:(version: types.Version, book: string, chapter: number, verseNumber: [number, number])=>Promise<types.Chapter>;
 }
 export async function __system_execfetchweb(version: types.Version, book: types.Book, chapter: number, verseNumber: [number, number], source?:string): Promise<types.Chapter> {
     type type_getbook = keyof typeof bookopts;

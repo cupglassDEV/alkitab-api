@@ -5,6 +5,27 @@ import {load as cheerioload} from "cheerio";
 import axios from 'axios';
 export class defaultSrc implements bookTemp{
     cachemaporigin:number[]=[0];
+    private isVersesOutOfRange(selectedverse:[number, number], verses:alkitabapi.Verse[]):boolean{
+        // eslint-disable-next-line no-var
+        var firstrun = true;
+        // eslint-disable-next-line no-var
+        var counter = 0;
+        if (utils.isInt16(selectedverse[0])||utils.isInt16(selectedverse[1])) throw new Error('the number/s isnt in interger');
+        if (verses[0].verse>selectedverse[0]) return true;
+        for (const verse in verses){
+            if (firstrun) {
+                counter = verses[verse].verse;
+                firstrun = false;   
+            } else {
+                if (verses[verse].verse!==counter+1) throw new Error ('the verse numbers dosent sorted correctly');
+            }
+        }
+        firstrun = true;
+        for (const verse in verses) {
+            if (verse)
+        }
+        return true;
+    }
     public async getfetch (version: alkitabapi.Version, book: string, chapter: number, verseNumber: [number, number]):Promise<alkitabapi.Chapter>{
         const htmldata = (await axios.get(`https://alkitab.mobi/${version}/${book}/${chapter}`, {responseType:'document'})).data;
         const html$ = cheerioload(htmldata);
