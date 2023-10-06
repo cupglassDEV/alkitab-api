@@ -8,6 +8,6 @@
         "strict": true,
         "sourceMap": true,
     },
-    "include": ["src/esm"],
+    "include": ["src/cjs-and-esm"],
     "exclude": ["node_modules", "**/__tests__/*"]
 }

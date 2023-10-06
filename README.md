@@ -7,8 +7,8 @@ npm install @daxplrer/alkitabapi
 
 Then try to run ```getChapters```
 ```ts
-import {alkitabapi, types} from '@daxplrer/alkitabapi'
-await alkitabapi.getChapter(types.Version.tb, types.Book.proverbs, 12, 21);
+import alkitabapi from '@daxplrer/alkitabapi'
+await alkitabapi.getChapter(alkitabapi.Version.tb, alkitabapi.Book.proverbs, 12, 21);
 ```
 
 The results would be like this:
@@ -28,7 +28,9 @@ The results would be like this:
     }
 ```
 # Updates
-- 
+- the ```types``` and ```alkitabapi``` namespace was merged into one namespace (```alkitabapi```)
+- default exports was supported now
+- some useless code (in the internal) was removed
 # Known bugs
 --
 # Documentation
