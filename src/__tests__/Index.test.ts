@@ -1,9 +1,9 @@
-import { alkitabapi as apicjs } from '../cjs-and-esm/index';
+import { alkitabapi as apicjs } from '../main/index';
 test('alkitabapi', async () => {
   async function runner():Promise<string>{
     const datares = await apicjs.getChapter(apicjs.Version.tb, apicjs.Book.proverbs, 12, 21);
     console.log(datares);
-    if (datares.toJoinedVerses!=undefined) {
+    if (datares.toJoinedVerses!==undefined) {
       return datares.toJoinedVerses();
     }
     else throw new Error('fail');

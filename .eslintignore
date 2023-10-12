@@ -3,3 +3,4 @@
 /coverage
 /src/__tests__/*
 /copycjstoesm.cjs
+# currently eslint dosent supports 

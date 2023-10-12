@@ -1,0 +1,7 @@
+config noimport noextend nojs
+@import a from ./pp 
+@import as from a
+{o:null,opera:[
+    a,
+    0,
+],}

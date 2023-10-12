@@ -29,7 +29,7 @@ The results would be like this:
 ```
 # Updates
 - the ```types``` and ```alkitabapi``` namespace was merged into one namespace (```alkitabapi```)
-- default exports was supported now
+- default exports are supported now
 - some useless code (in the internal) was removed
 # Known bugs
 --
