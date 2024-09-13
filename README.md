@@ -1,3 +1,16 @@
+### Hey, pls read me!
+
+Untill now, i have NO plan to rework on this project due to the weird structure of this package, and the Sabda api itself 
+
+(for example, they might return plain text that looks like this
+
+`[Verse] [Quote]`
+And they didnt use the JSON format to make it more cleaner)
+
+Also im no longer making projects that based on Javascript, from now on. Working on something bigger on another repository
+
+So feel free to fork it
+
 [@sonnylazuardi](https://github.com/sonnylazuardi)'s [alkitab-api](https://github.com/sonnylazuardi/alkitab-api), as a module
 # Setup
 Install the package by executing:
